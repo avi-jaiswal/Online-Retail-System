@@ -20,18 +20,18 @@ std::set<std::string> parseStringToWords(string rawWords)
   int end = 0;
 	int count = 0;
 	while(count < rawWords.length()){
-    if ((rawWords[count] < 65 || (rawWords[count] > 90)) && (rawWords[count] < 97 || rawWords[count] > 122)){
+		if(count == rawWords.length() - 1){
+      end = count;
+      if (end - start + 1 >= 2){
+        word.insert(rawWords.substr(start, end - start + 1));
+      }
+    }
+		else if ((rawWords[count] < 65 || (rawWords[count] > 90)) && (rawWords[count] < 97 || rawWords[count] > 122)){
       end = count - 1;
       if (end - start + 1 >= 2){
         word.insert(rawWords.substr(start, end - start + 1));
       }
       start = count + 1;
-    }
-		else if(count == rawWords.length() - 1){
-      end = count;
-      if (end - start + 1 >= 2){
-        word.insert(rawWords.substr(start, end - start + 1));
-      }
     }
 		count++;
 	}
