@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
     parser.addSectionParser("users", userSectionParser);
 
     // Now parse the database to populate the DataStore
-    if( parser.parse(argv[1], ds) ) {
+    if(parser.parse(argv[1], ds)){
         cerr << "Error parsing!" << endl;
         return 1;
     }
